@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chỉnh sửa User</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container mt-5">
+  <h1>Chỉnh sửa User</h1>
+
+  <form id="editUserForm">
+    <div class="mb-3">
+      <label for="userId" class="form-label">User Id</label>
+      <input type="number" class="form-control" id="userId">
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label">Tên đăng nhập</label>
+      <input type="text" class="form-control" id="username" readonly disabled>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mật khẩu</label>
+      <input type="password" name="password" class="form-control" id="password">
+    </div>
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Họ và Tên</label>
+      <input type="text" class="form-control" id="fullName">
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Tuổi</label>
+      <input type="number" class="form-control" id="age">
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Địa chỉ</label>
+      <input type="text" class="form-control" id="address">
+    </div>
+    <input type="hidden" id="roleId">
+    <button type="button" class="btn btn-primary" onclick="services.btn_Luu_click()" id="btnLuu">Lưu</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- JavaScript Tùy chỉnh -->
+<script th:src="@{/js/edit-user.js}"></script>
+<script>
+  const services = new EditUserManager();
+  $(document).ready(async function() {
+    await services.loadInit();
+    // await services.loadRoles();
+  });
+</script>
+</body>
+</html>

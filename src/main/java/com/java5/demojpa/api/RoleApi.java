@@ -18,7 +18,7 @@ public class RoleApi {
 
     @GetMapping("/getAllRole")
     public ResponseEntity<?> doGetAllRole() {
-        Map<String, Object> result = new HashMap();
+        Map<String, Object> result = new HashMap<>();
         result.put("success",true);
         result.put("message","Call api success");
         result.put("data",roleRepository.findAll());

@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serial;
 import java.io.Serializable;
 
 @Getter
@@ -18,6 +20,7 @@ import java.io.Serializable;
 @Entity
 public class Role implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

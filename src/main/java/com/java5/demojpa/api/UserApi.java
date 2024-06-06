@@ -18,7 +18,7 @@ public class UserApi {
 
     @GetMapping("getAllUser")
     public ResponseEntity<?> doGetAllUser(){
-        Map<String,Object> result = new HashMap();
+        Map<String,Object> result = new HashMap<>();
         try {
             result.put("success",true);
             result.put("message","Call api succes");
@@ -31,9 +31,24 @@ public class UserApi {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("getUserByUserId")
+    public ResponseEntity<?> doGetUserByUserId(@RequestParam("userId") int userId){
+        Map<String,Object> result = new HashMap<>();
+        try {
+            result.put("success",true);
+            result.put("message","Call api succes");
+            result.put("data",userSevice.getUserById(userId));
+        }catch (Exception e){
+            result.put("success",false);
+            result.put("message","Call api fail");
+            result.put("data",null);
+        }
+        return ResponseEntity.ok(result);
+    }
+
     @GetMapping("getUsersByRoleId")
     public ResponseEntity<?> doGetUsersByRoleId(@Param("roleId")int roleId){
-        Map<String,Object> result = new HashMap();
+        Map<String,Object> result = new HashMap<>();
         try {
             result.put("success",true);
             result.put("message","Call api succes");
@@ -49,7 +64,7 @@ public class UserApi {
 
     @PostMapping("saveUser")
     public ResponseEntity<?> saveUser(@RequestBody User user){
-        Map<String,Object> result = new HashMap();
+        Map<String,Object> result = new HashMap<>();
         try {
             result.put("success",true);
             result.put("message","Call api succes");
